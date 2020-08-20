@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<head>
+
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      
+</head>
+
+<body>
+<div th:fragment="equipmentTypes">
+
+	
+		<div class="card">
+	<img src="https://www.shelterlogic.ca/rio/media/catalog/category/HeaderImage_Camping_M2_RIO_category_landing_page.png" class="card-img-top" alt="...">
+			<div class="card-body">
+			
+				<h1 align = "center">Equipment Types</h1>
+				<div th:switch="${equipmentTypes}" class="container my-5">
+				
+					<p class="my-5">
+					
+						<a href="/equipmentTypes/add" class="btn btn-primary"><i
+							class="fas fa-user-plus ml-2"> Add equipment type</i></a>
+					
+					
+				
+					<div class="col-md-10">
+						<h2 th:case="null">No equipment types yet!</h2>
+						<div th:case="*">
+						
+							<table class="table table-striped table-responsive-md table-dark">
+							
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Max Weight</th>
+										<th>Max Volume</th>
+										<th>Description</th>
+										<th>Edit</th>
+										<th>Delete</th>
+									</tr>
+								</thead>
+								
+								<tbody>
+								
+									<tr th:each="equipmentType : ${equipmentTypes}">
+										<td th:text="${equipmentType.name}"></td>
+										<td th:text="${equipmentType.maxWeight}"></td>
+										<td th:text="${equipmentType.maxVolume}"></td>
+										<td th:text="${equipmentType.description}"></td>
+										<td><a th:href="@{/equipmentTypes/edit/{id}(id=${equipmentType.id})}"
+											class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+										<td><a
+											th:href="@{/equipmentTypes/delete/{id}(id=${equipmentType.id})}"
+											class="btn btn-primary"><i class="fa fa-user-times ml-2"></i></a></td>
+									</tr>
+								
+								</tbody>
+								
+							</table>
+							
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	
+	 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+    <!DOCTYPE html>
+    <html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/main-layout}">
+        <head>
+            <title>Home Page</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+           <link th:href="@{/css/main.css}" rel="stylesheet" media="screen" />
+        </head>
+        <body>
+            <div class="container">
+                <div class="row">
+                    <div class="col-2" layout:fragment="sidebar">
+                    </div>
+                    <div class="col" layout:fragment="content">
+                     <div class="card">
+	<img src="https://www.shelterlogic.ca/rio/media/catalog/category/HeaderImage_Camping_M2_RIO_category_landing_page.png" class="card-img-top" alt="...">
+			<div class="card-body">
+			
+				<h1 align = "center">Items</h1>
+				<div th:switch="${items}" class="container my-5">
+				
+					<p class="my-5">
+					
+						<a href="/items/add" class="btn btn-primary"><i
+							class="fas fa-user-plus ml-2"> Add Item</i></a>
+							<a href="/items/sortByWeight" class="btn btn-primary"><i
+							class="fas fa-user-plus ml-2"> Sort By Weight</i></a>
+					
+					
+				
+					<div class="col-md-10">
+						<h2 th:case="null">No Items yet!</h2>
+						<div th:case="*">
+						
+							<table class="table table-striped table-responsive-md table-dark">
+							
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Weight</th>
+										<th>Volume</th>
+										<th>Description</th>
+										<th>Edit</th>
+										<th>Delete</th>
+									</tr>
+								</thead>
+								
+								<tbody>
+								
+									<tr th:each="item : ${items}">
+										<td th:text="${item.name}"></td>
+										<td th:text="${item.weight}"></td>
+										<td th:text="${item.volume}"></td>
+										<td th:text="${item.description}"></td>
+										<td><a th:href="@{/items/edit/{id}(id=${item.id})}"
+											class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+										<td><a
+											th:href="@{/items/delete/{id}(id=${item.id})}"
+											class="btn btn-primary"><i class="fa fa-user-times ml-2"></i></a></td>
+									</tr>
+								
+								</tbody>
+								
+							</table>
+							
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+                        
+
+</div>
+                    </div>
+                </div>
+           
+        </body>
+    </html>

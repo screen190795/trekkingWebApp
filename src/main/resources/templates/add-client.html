@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/main-layout}">
+
+<head>
+ <link th:href="@{/css/main.css}" rel="stylesheet" media="screen" /></head>
+</head>
+<body>
+<div class="col" layout:fragment="content">
+	
+	<h3> Add Client</h3>
+		<div class="card">
+			<div class="card-body">
+				<div class="col-md-10">
+					<form action="#" th:action="@{/clients/add}"
+						th:object="${client}" method="post">
+						<div class="row">
+							<div class="form-group col-md-8">
+								<label for="lastName" class="col-form-label">Last Name</label> <input
+									type="text" th:field="*{lastName}" class="form-control" id="lastName"
+									placeholder="LastName"> <span
+									th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+									class="text-danger"></span>
+							</div>
+							<div class="form-group col-md-8">
+								<label for="firstName" class="col-form-label">First Name</label> <input
+									type="text" th:field="*{firstName}" class="form-control" id="firstName"
+									placeholder="FirstName"> <span
+									th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
+									class="text-danger"></span>
+							</div>
+							<div class="form-group col-md-8">
+								<label for="middleName" class="col-form-label">Middle Name</label> <input
+									type="text" th:field="*{middleName}" class="form-control" id="middleName"
+									placeholder="MiddleName"> <span
+									th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}"
+									class="text-danger"></span>
+							</div>
+							<div class="form-group col-md-8">
+								<label for="age" class="col-form-label">Age</label> <input
+									type="text" th:field="*{age}" class="form-control" id="age"
+									placeholder="Age"> <span
+									th:if="${#fields.hasErrors('age')}" th:errors="*{age}"
+									class="text-danger"></span>
+							</div>
+							<div class="form-group col-md-8">
+								<label for="description" class="col-form-label">Description</label> <input
+									type="text" th:field="*{description}" class="form-control"
+									id="description" placeholder="Description"> <span
+									th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
+									class="text-danger"></span>
+							</div>
+
+							<div class="col-md-6">
+								<input type="submit" class="btn btn-primary" value="Add Client">
+							</div>
+
+							<div class="form-group col-md-8"></div>
+
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		</div>
+	
+	
+</body>
+</html>

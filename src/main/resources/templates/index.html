@@ -1,0 +1,23 @@
+    <!DOCTYPE html>
+    <html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/main-layout}">
+        <head>
+            <title>Home Page</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+           <link th:href="@{/css/main.css}" rel="stylesheet" media="screen" />
+        </head>
+        <body>
+            <div class="container">
+                <div class="row">
+                    <div class="col-2" layout:fragment="sidebar">
+                    </div>
+                    <div class="col" layout:fragment="content">
+                    
+                       <div th:replace="/clients :: clients" class = "clients"></div> 
+                        
+
+</div>
+                    </div>
+                </div>
+           
+        </body>
+    </html>

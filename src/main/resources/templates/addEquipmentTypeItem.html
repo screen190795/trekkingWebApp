@@ -1,0 +1,50 @@
+
+  
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Developer</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" th:href="@{../css/bootstrap.min.css}" />	
+</head>
+<body>
+    <div class="container">
+        <div class="container-fluid">
+            <div class="page-header">
+               
+            </div>
+            <form action="#"
+                  th:action="@{/equipmentTypes/addItemEquipmentType/}+${equipmentType.id}+@{/item}"
+                  enctype="multipart/form-data">
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Equipment Info</div>
+                        <div class="panel-body" style="padding-left: 5px;">
+                            Name : <b th:utext="${equipmentType.name}"></b>
+                            <br/>
+                           
+                            Item : <span th:each="item : ${equipmentType.items}">
+                            <br/>&nbsp;&nbsp;<b th:utext="${item.name}"></b>
+                        </span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <select class="form-control" name="itemId">
+                            <option th:each="item : ${items}"
+                            th:value="${item.id}"
+                            th:text="${item.name}"></option>
+                        </select>
+                    </div>
+                </div>
+                <br/>
+                <button type="submit" class="btn btn-primary">
+                    Add Item
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+

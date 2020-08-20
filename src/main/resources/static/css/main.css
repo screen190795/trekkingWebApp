@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+}
+ 
+header {
+ 
+    padding: 5px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+    
+}
+body > header > div{
+	height:100%;
+	
+}
+body{
+	background: url("https://i.pinimg.com/originals/29/c8/d8/29c8d857aae4907c87875a404d41a1a7.jpg") 100% 100% ;
+	
+}
+
+body > header > div > div > div.col-md-3.col-xl-2.logo{
+	background: url("https://www.pngkey.com/png/full/289-2893507_a-forest-holiday-in-hampshire-is-your-holiday.png")10% 50% no-repeat;
+	background-size: 50%;
+	
+}
+.btn-secondary{
+	background:black;
+	border:light-grey 3px solid;
+	color: white;
+}
+
+
+
+
+nav {
+    float: left;
+ 
+    height: 100%;
+
+    padding: 20px;
+    color:black;
+}
+ 
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    
+}
+.delete{
+	background-imege:black;
+}
+ 
+article {
+    float: left;
+    padding: 0px;
+    width: 100%;
+    background:none;
+    height: 100%;
+    
+    
+    
+}
+ 
+section:after {
+    content: "";
+    display: table;
+    clear: both;
+    
+    
+}
+
+
+.card{
+	  height:510px;
+     overflow-y: scroll;
+     overflow-x: scroll;
+     background:grey;
+     border:3px black solid;
+     
+     
+}
+
+
+
+.footer {
+
+    padding: 10px;
+    text-align: center;
+    background: none;
+    color:white;
+  
+    
+}
+ 
+@media ( max-width : 600px) {
+    nav, article {
+        width: 100%;
+        height: auto;
+        
+    }
+    

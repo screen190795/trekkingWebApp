@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/main-layout}">
+
+<head>
+ <link th:href="@{/css/main.css}" rel="stylesheet" media="screen" /></head>
+</head>
+<body>
+<div class="col" layout:fragment="content">
+	
+	<h3> Add Item</h3>
+		<div class="card">
+			<div class="card-body">
+				<div class="col-md-10">
+					<form action="#" th:action="@{/items/add}"
+						th:object="${item}" method="post">
+						<div class="row">
+							<div class="form-group col-md-8">
+								<label for="name" class="col-form-label">Name</label> <input
+									type="text" th:field="*{name}" class="form-control" id="name"
+									placeholder="Name"> <span
+									th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+									class="text-danger"></span>
+							</div>
+							<div class="form-group col-md-8">
+								<label for="weight" class="col-form-label">Weight</label> <input
+									type="text" th:field="*{weight}" class="form-control" id="weight"
+									placeholder="Weight"> <span
+									th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}"
+									class="text-danger"></span>
+							</div>
+
+							<div class="form-group col-md-8">
+								<label for="volume" class="col-form-label">Volume</label> <input
+									type="text" th:field="*{volume}" class="form-control"
+									id="volume" placeholder="volume"> <span
+									th:if="${#fields.hasErrors('volume')}" th:errors="*{volume}"
+									class="text-danger"></span>
+							</div>
+							<div class="form-group col-md-8">
+								<label for="description" class="col-form-label">Description</label> <input
+									type="text" th:field="*{description}" class="form-control"
+									id="description" placeholder="description"> <span
+									th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
+									class="text-danger"></span>
+							</div>
+
+							<div class="col-md-6">
+								<input type="submit" class="btn btn-primary" value="Add Item">
+							</div>
+
+							<div class="form-group col-md-8"></div>
+
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		</div>
+	
+	
+</body>
+</html>

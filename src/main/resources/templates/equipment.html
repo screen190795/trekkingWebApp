@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+
+
+<head>
+
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+       <link th:href="@{/css/main.css}" rel="stylesheet" media="screen" />
+</head>
+<body>
+<div th:fragment="equipment">
+ <table class="table table-striped">
+<tr th:each = "equipmentType : ${equipmentTypes}">
+    <td th:text="${equipmentType.name}"></td>
+    <td th:text="${equipmentType.maxWeight}"></td>
+    <td th:text="${equipmentType.maxVolume}"></td>
+    <td th:text="${equipmentType.description}"></td>
+   
+   
+    <td>
+        <a th:href="@{get/{id}(id=${equipmentType.id})}" class="btn btn-success btn-xs">Add Item</a>
+        <a th:href="@{/delete/{id}(id=${equipmentType.id})}" class="btn btn-danger btn-xs">Delete</a>
+    </td>
+</tr>
+</div>
+</body>
+</html>
