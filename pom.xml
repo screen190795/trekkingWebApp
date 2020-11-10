@@ -9,14 +9,20 @@
 		<version>2.1.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>net.javaguides.springboot</groupId>
-	<artifactId>springboot-thymeleaf-crud-tutorial</artifactId>
+	<groupId>ru.study.RBProjects</groupId>
+	<artifactId>trekkingWebApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot-thymeleaf-crud-tutorial</name>
-	<description>springboot-thymeleaf-crud-tutorial</description>
+	<name>trekkingWebApp</name>
+	<description>springboot-thymeleaf-crud-studyProject</description>
 
 	<properties>
 		<java.version>1.8</java.version>
+		<postgresql.version>42.2.14</postgresql.version>
+		<thymeleaf-layout-dialect.version>2.4.1</thymeleaf-layout-dialect.version>
+		<bootstrap.version>4.5.0</bootstrap.version>
+		<liquibase-groovy-dsl.version>2.1.1</liquibase-groovy-dsl.version>
+		<popper.js.version>2.0.2</popper.js.version>
+		<jquery.version>3.5.1</jquery.version>
 	</properties>
 
 	<dependencies>
@@ -38,32 +44,32 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		 <dependency>
-    <groupId>org.postgresql</groupId>
-    <artifactId>postgresql</artifactId>
-    <version>42.2.14</version><!--$NO-MVN-MAN-VER$-->
-</dependency>
+		<dependency>
+    		<groupId>org.postgresql</groupId>
+    		<artifactId>postgresql</artifactId>
+    		<version>${postgresql.version}</version><!--$NO-MVN-MAN-VER$-->
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect -->
-<dependency>
-    <groupId>nz.net.ultraq.thymeleaf</groupId>
-    <artifactId>thymeleaf-layout-dialect</artifactId>
-    <version>2.4.1</version><!--$NO-MVN-MAN-VER$-->
-</dependency>
+		<dependency>
+    		<groupId>nz.net.ultraq.thymeleaf</groupId>
+    		<artifactId>thymeleaf-layout-dialect</artifactId>
+    		<version>${thymeleaf-layout-dialect.version}</version><!--$NO-MVN-MAN-VER$-->
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
-<dependency>
-    <groupId>org.webjars</groupId>
-    <artifactId>bootstrap</artifactId>
-    <version>4.5.0</version>
-</dependency>
+	<dependency>
+    	<groupId>org.webjars</groupId>
+    	<artifactId>bootstrap</artifactId>
+    	<version>${bootstrap.version}</version>
+	</dependency>
 		  <dependency>
         <groupId>org.liquibase</groupId>
         <artifactId>liquibase-groovy-dsl</artifactId>
-        <version>2.1.1</version>
+        <version>${liquibase-groovy-dsl.version}</version>
         <exclusions>
             <exclusion>
                 <groupId>org.codehaus.groovy</groupId>
@@ -75,42 +81,26 @@
             </exclusion>
         </exclusions>
     </dependency>
-
     <dependency>
         <groupId>org.codehaus.groovy</groupId>
         <artifactId>groovy</artifactId>
-        <version>3.0.3</version>
-    </dependency>
-
+        </dependency>
     <dependency>
         <groupId>org.codehaus.groovy</groupId>
         <artifactId>groovy-sql</artifactId>
-        <version>3.0.3</version>
-    </dependency>
-    
-    <!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
-<dependency>
-    <groupId>org.webjars</groupId>
-    <artifactId>bootstrap</artifactId>
-    <version>4.5.0</version>
-</dependency>
+        </dependency>
 <!-- https://mvnrepository.com/artifact/org.webjars/popper.js -->
 <dependency>
     <groupId>org.webjars</groupId>
     <artifactId>popper.js</artifactId>
-    <version>2.0.2</version>
+    <version>${popper.js.version}</version>
 </dependency>
 <!-- https://mvnrepository.com/artifact/org.webjars/jquery -->
 <dependency>
     <groupId>org.webjars</groupId>
     <artifactId>jquery</artifactId>
-    <version>3.5.1</version>
+    <version>${jquery.version}</version>
 </dependency>
-
-    
-    
-    
-    
 	</dependencies>
 
 	<build>

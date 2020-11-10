@@ -1,49 +1,44 @@
 package com.rbprjojects.trekkingwebapp.entity;
 
 
-import java.util.Set;
-
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.persistence.Table;
+import java.util.Set;
 @Table
 @Entity
 
 public class Item {
-	
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    @NotBlank(message = "Name is mandatory")
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	@NotBlank(message = "Name is mandatory")
 	@Column(name="Name", length = 128,nullable = false)
 	private String name;
-	
+
 	@Column(name="Weight")
 	private Float weight;
 
 	@Column(name="Volume")
 	private Float volume;
-	
+
 	@Column(name="Description", length =128)
 	private String description;
-	
+	@ManyToMany(mappedBy = "items")
+	@ElementCollection
+	private Set<EquipmentType> equipmentTypes;
+
 	public Item() {}
-	
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
-        this.id = id;
-        
-    }
-	
+		this.id = id;
+
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -76,22 +71,13 @@ public class Item {
 		this.description = description;
 	}
 
-	@Override
-	public String toString() {
-		return "Item [id=" + id + ", name=" + name + ", weight=" + weight + ", volume=" + volume + ", description="
-				+ description + "]";
+
+	public Set<EquipmentType> getEquipmentTypes() {
+		return equipmentTypes;
+	}
+	public void setEquipmentTypes(Set<EquipmentType> equipmentTypes) {
+		this.equipmentTypes = equipmentTypes;
 	}
 
-	@ManyToMany(mappedBy = "items")   
-	@ElementCollection
-	private Set<EquipmentType> equipmentTypes;  
-	    
-	public Set<EquipmentType> getEquipmentTypes() {
-	    return equipmentTypes;
-	}
-	 public void setEquipmentTypes(Set<EquipmentType> equipmentTypes) {
-	        this.equipmentTypes = equipmentTypes;
-	    }
-	
-	 
+
 }

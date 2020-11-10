@@ -1,44 +1,43 @@
 package com.rbprjojects.trekkingwebapp.entity;
 
-import java.util.Set;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.Set;
 
 @Entity
 public class Route {
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    @NotBlank(message = "Name is mandatory")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	@NotBlank(message = "Name is mandatory")
 	@Column(name="Name", length = 128,nullable = false)
 	private String name;
-	
+
 	@Column(name="StartX")
 	private Double startX;
 
 	@Column(name="StartY")
 	private Double startY;
-	
+
 	@Column(name="FinishX")
 	private Double finishX;
-	
+
 	@Column(name="FinishY")
 	private Double finishY;
-	
+
 	@Column(name="Length")
 	private Integer length;
-	
+
 	@Column(name="Duration")
 	private Float duration;
-	
+
 	@Column(name="Description", length =128)
 	private String description;
+	@ManyToMany(mappedBy = "routes")
+	private Set<Client> clients;
+
+	public Route() {
+	}
 
 	public long getId() {
 		return id;
@@ -112,18 +111,5 @@ public class Route {
 		this.description = description;
 	}
 
-	@Override
-	public String toString() {
-		return "Route [id=" + id + ", name=" + name + ", startX=" + startX + ", startY=" + startY + ", finishX="
-				+ finishX + ", finishY=" + finishY + ", length=" + length + ", duration=" + duration + ", description="
-				+ description + "]";
-	}
 
-	public Route() {
-	}
-	
-	 @ManyToMany(mappedBy = "routes")
-	    private Set<Client> clients;
-	
-	
 }

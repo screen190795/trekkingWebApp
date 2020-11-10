@@ -1,38 +1,38 @@
 package com.rbprjojects.trekkingwebapp.entity;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.Set;
 @Entity
 public class Product {
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    @NotBlank(message = "Product Name is mandatory")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	@NotBlank(message = "Product Name is mandatory")
 	@Column(name="Name", length = 128,nullable = false)
 	private String name;
-	
+
 	@Column(name="Weight")
 	private Float weight;
-	
+
 	@Column(name="Proteins")
 	private Integer proteins;
-	
+
 	@Column(name="Fats")
 	private Integer fats;
-	
+
 	@Column(name="Carbohydrates")
 	private Integer carbohydrates;
-	
+
 	@Column(name="Description", length =128)
 	private String description;
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable
+	private Set<ProductMenuType> productMenuTypes;
+
+	public Product() {
+
+	}
 
 	public long getId() {
 		return id;
@@ -90,19 +90,7 @@ public class Product {
 		this.description = description;
 	}
 
-	@Override
-	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", weight=" + weight + ", proteins=" + proteins + ", fats="
-				+ fats + ", carbohydrates=" + carbohydrates + ", description=" + description + "]";
-	}
 
-	public Product() {
-		
-	}
-	
-	 @ManyToMany(cascade = CascadeType.ALL)
-	    @JoinTable
-	    private Set<ProductMenuType> productMenuTypes;
-	
-	
+
+
 }

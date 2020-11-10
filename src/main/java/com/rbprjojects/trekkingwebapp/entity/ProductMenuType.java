@@ -1,38 +1,38 @@
 package com.rbprjojects.trekkingwebapp.entity;
 
-import java.util.Set;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.Set;
 
 @Entity
 public class ProductMenuType {
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    @NotBlank(message = "Product Menu Type Name is mandatory")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	@NotBlank(message = "Product Menu Type Name is mandatory")
 	@Column(name="Name", length = 128,nullable = false)
 	private String name;
-	
+
 	@Column(name="MaxWeight")
 	private Float maxWeight;
-	
+
 	@Column(name="MinProteins")
 	private Integer minProteins;
-	
+
 	@Column(name="MinFats")
 	private Integer minFats;
-	
+
 	@Column(name="MinCarbohydrates")
 	private Integer minCarbohydrates;
-	
+
 	@Column(name="Description", length =128)
 	private String description;
+	@ManyToMany(mappedBy = "productMenuTypes")
+	private Set<Product> products;
+
+	public ProductMenuType() {
+
+	}
 
 	public long getId() {
 		return id;
@@ -90,17 +90,6 @@ public class ProductMenuType {
 		this.description = description;
 	}
 
-	@Override
-	public String toString() {
-		return "ProductMenuType [id=" + id + ", name=" + name + ", maxWeight=" + maxWeight + ", minProteins="
-				+ minProteins + ", minFats=" + minFats + ", minCarbohydrates=" + minCarbohydrates + ", description="
-				+ description + "]";
-	}
 
-	public ProductMenuType() {
-	
-	}
-	@ManyToMany(mappedBy = "productMenuTypes")
-    private Set<Product> products;
-	
+
 }
